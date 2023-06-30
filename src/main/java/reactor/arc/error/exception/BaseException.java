@@ -1,4 +1,4 @@
-package reactor.arc.exception;
+package reactor.arc.error.exception;
 
 public class BaseException extends RuntimeException {
 

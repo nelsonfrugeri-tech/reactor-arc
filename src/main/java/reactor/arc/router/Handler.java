@@ -3,8 +3,8 @@ package reactor.arc.router;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.arc.exception.BadRequestException;
-import reactor.arc.exception.InternalServerErrorException;
+import reactor.arc.error.exception.BadRequestException;
+import reactor.arc.error.exception.InternalServerErrorException;
 import reactor.core.publisher.Mono;
 
 @Component
