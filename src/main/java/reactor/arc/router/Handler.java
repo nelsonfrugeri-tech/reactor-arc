@@ -15,9 +15,5 @@ public class Handler {
       return Mono.error(new InternalServerErrorException("Internal Server Error"));
     }
     else if(serverRequest.pathVariable("version").equals("v2")) {
-      return Mono.error(new BadRequestException("Bad Request"));
-    }
-
-    return ServerResponse.ok().body(Mono.just("Hello World"), String.class);
-  }
+      return Mono.error(new BadRequestException("Bad
 }
