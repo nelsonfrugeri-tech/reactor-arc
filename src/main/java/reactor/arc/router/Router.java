@@ -17,7 +17,8 @@ public class Router {
   public RouterFunction<ServerResponse> routerFunction() {
     return RouterFunctions.route()
         .path("/v1/reactor/arc", builder -> builder
-            .GET("/m1/{version}", handler::list))
+            .GET("/m1/{version}", handler::list)
+.GET("/m2/{version}", handler::listV2))
         .build();
   }
 }

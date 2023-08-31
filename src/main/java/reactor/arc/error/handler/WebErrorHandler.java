@@ -41,4 +41,16 @@ public class WebErrorHandler {
     public static Mono<ServerResponse> handleUnknownException(Throwable e) {
         return Mono.error(new RuntimeException("Erro desconhecido"));
     }
+
+    public static Mono<ServerResponse> handleNotFoundException(NotFoundException e) {
+        return ServerResponse.status(HttpStatus.NOT_FOUND)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(BodyInserters.fromValue(MessageError.builder()
+                .code("ERR-003")
+                .description("Not Found Error")
+                .errors(Collections.singletonList(MessageError.Error.builder()
+                    .message(e.getMessage())
+                    .build()))
+                .build()));
+    }
 }
