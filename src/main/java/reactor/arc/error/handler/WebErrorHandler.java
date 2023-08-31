@@ -53,4 +53,16 @@ public class WebErrorHandler {
                     .build()))
                 .build()));
     }
+
+    public static Mono<ServerResponse> handleNewNotFoundException(NewNotFoundException e) {
+        return ServerResponse.status(HttpStatus.NOT_FOUND)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(BodyInserters.fromValue(MessageError.builder()
+                .code("ERR-004")
+                .description("New Not Found Error")
+                .errors(Collections.singletonList(MessageError.Error.builder()
+                    .message(e.getMessage())
+                    .build()))
+                .build()));
+    }
 }
